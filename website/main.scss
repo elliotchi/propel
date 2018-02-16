@@ -53,7 +53,8 @@ p {
   margin: $size1;
 }
 
-h1, h2 {
+h1,
+h2 {
   letter-spacing: -0.1rem;
   line-height: 1.2;
 }
@@ -66,12 +67,6 @@ h2 {
   font-size: 2.5rem;
 }
 
-@media (min-width: 550px) {
-  h1 {
-    font-size: 5rem;
-  }
-}
-
 a {
   color: $linkColor;
   text-decoration: none;
@@ -79,6 +74,11 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Don't allow SVGs to get wider than the screen. */
+svg {
+  max-width: 100%;
 }
 
 .button,
@@ -107,173 +107,6 @@ code {
   font-family: 'Roboto Mono', monospace;
 }
 
-.flex-row {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-
-  .flex-cell {
-    flex-basis: 0;
-    flex-grow: 1;
-    padding: $size2 0;
-    padding: $size0;
-
-    p {
-      margin: 0;
-    }
-  }
-
-  @media (max-width: 550px) {
-    flex-wrap: wrap;
-
-    .flex-cell {
-      flex-basis: 100%;
-    }
-
-    .flex-cell.intro-notebook {
-      padding: 0;
-
-      .notebook-cell {
-        border-left: 0;
-        border-right: 0;
-      }
-    }
-  }
-}
-
-.splash {
-  padding-bottom: $size2;
-  background-color: $bodyBackground;
-}
-
-.intro h2 {
-  margin-top: $size0;
-}
-
-.use-it {
-  background: #fafafa;
-  padding: $size2 $size0;
-
-  p {
-    margin: $size1 0 0 0;
-    &:first-child {
-      margin: 0;
-    }
-  }
-
-  pre {
-    background: $bodyBackground;
-  }
-}
-
-.perks {
-  h2 {
-    min-height: 32px;
-    padding-left: 40px;
-    background-position: center left;
-    background-repeat: no-repeat;
-    &.world     { background-image: url("/static/img/world.svg");     }
-    &.upward    { background-image: url("/static/img/upward.svg");    }
-    &.chip      { background-image: url("/static/img/chip.svg");      }
-    &.lightning { background-image: url("/static/img/lightning.svg"); }
-  }
-}
-
-.footer {
-  width: 100%;
-  margin-top: $size2;
-  padding: $size1 0;
-  background-color: #589def;
-  text-align: center;
-
-  a {
-    color: $bodyBackground;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-}
-
-/* Don't allow SVGs to get wider than the screen. */
-svg {
-  max-width: 100%;
-}
-
-.doc-entries {
-  overflow-x: hidden;
-  background-color: #f0f0f7;
-}
-
-.doc-entry {
-  padding: 0;
-  height: auto;
-  padding-left: 0;
-  border-top: 1px solid $bodyBackground;
-  border-bottom: 1px solid $bodyBackground;
-  margin-bottom: $size1;
-  margin-top: $size1;
-  box-shadow: $shadow;
-  background-color: #fff;
-  max-width: 60rem;
-
-  .source-link {
-    float: right;
-    font-size: 10px;
-    color: #666;
-  }
-
-  h2 {
-    font-size: 20px;
-    color: $linkColor;
-    font-weight: 300;
-  }
-
-  h2,
-  .source-link,
-  .typestr {
-    margin: $size0;
-  }
-
-  & .arg-global-header-title {
-    font-weight: bold;
-  }
-
-  ol {
-    margin: 0 $size1;
-  }
-
-  &:target {
-    background-color: #fafaff;
-    border-top: 1px solid $borderColor;
-    border-bottom: 1px solid $borderColor;
-    border-left: 2px solid $linkColor;
-    box-shadow: $shadow;
-  }
-}
-
-.panel {
-  background-color: $bodyBackground;
-
-  ol.docindex {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    margin: 0 4px;
-  }
-}
-
-.snippet-global-header-title {
-  font-weight: 500;
-  margin-bottom: -$size0;
-}
-
-.header-button {
-  display: inline-block;
-  margin: 0 10px 10px 0;
-}
-
 header {
   background-color: $bodyBackground;
   border-bottom: 1px solid $textColor;
@@ -289,72 +122,20 @@ header {
   }
 }
 
-.global-header {
-  width: 100%;
-  background-color: inherit;
+.use-it {
+  background: #fafafa;
 
-  .global-header-inner {
-    display: flex;
-    max-width: 930px;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 64px;
+  .use-it-inner {
+    padding: $size2 0;
   }
 
-  .global-header-right {
-    display: flex;
-    flex-direction: row;
-
-    > * {
-      display: block;
-      margin: auto 0 auto 36px;
-    }
-
-    a {
-      font-size: 14pt;
-      font-variant: all-small-caps;
-      text-decoration: none;
-      color: $accentColor;
-    }
-  }
-}
-
-.propel-logo {
-  display: flex;
-  flex-direction: row;
-  margin-right: $size0;
-  margin-left: $size0;
-
-  h1 {
-    display: inline;
-    font-size: 32pt;
-    font-weight: bold;
+  p {
+    margin: $size1 0 0 0;
   }
 
-  h2 {
-    display: inline;
-    color: $accentColor;
-    font-size: 16pt;
-    font-weight: normal;
+  pre {
+    background: $bodyBackground;
   }
-
-  a,
-  a:hover,
-  a:visited,
-  a:active {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  * {
-    margin: auto 0;
-    margin-right: $size0;
-  }
-}
-
-::selection {
-  background: #00f;
-  color: #fff;
 }
 
 .notebook-cell {
@@ -450,6 +231,247 @@ header {
   }
 }
 
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .flex-cell {
+    flex-basis: 100%;
+    flex-grow: 1;
+    padding: $size0;
+  }
+
+  .flex-cell.intro-notebook {
+    padding: 0;
+
+    .notebook-cell {
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.splash {
+  padding-bottom: $size2;
+  background-color: $bodyBackground;
+}
+
+.intro h2 {
+  margin-top: $size0;
+}
+
+.perks {
+  h2 {
+    min-height: 32px;
+    padding-left: 40px;
+    background-position: center left;
+    background-repeat: no-repeat;
+
+    &.world {
+      background-image: url("/static/img/world.svg");
+    }
+
+    &.upward {
+      background-image: url("/static/img/upward.svg");
+    }
+
+    &.chip {
+      background-image: url("/static/img/chip.svg");
+    }
+
+    &.lightning {
+      background-image: url("/static/img/lightning.svg");
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  margin-top: $size2;
+  padding: $size1 0;
+  background-color: #589def;
+  text-align: center;
+
+  a {
+    color: $bodyBackground;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.doc-entries {
+  overflow-x: hidden;
+  background-color: #f0f0f7;
+}
+
+.doc-entry {
+  padding: 0;
+  height: auto;
+  padding-left: 0;
+  border-top: 1px solid $bodyBackground;
+  border-bottom: 1px solid $bodyBackground;
+  margin-bottom: $size1;
+  margin-top: $size1;
+  box-shadow: $shadow;
+  background-color: #fff;
+  max-width: 60rem;
+
+  .source-link {
+    float: right;
+    font-size: 10px;
+    color: #666;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: $linkColor;
+    font-weight: 300;
+  }
+
+  h2,
+  .source-link,
+  .typestr {
+    margin: $size0;
+  }
+
+  & .arg-global-header-title {
+    font-weight: bold;
+  }
+
+  ol {
+    margin: 0 $size1;
+  }
+
+  &:target {
+    background-color: #fafaff;
+    border-top: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
+    border-left: 2px solid $linkColor;
+    box-shadow: $shadow;
+  }
+}
+
+.panel {
+  background-color: $bodyBackground;
+
+  ol.docindex {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0 4px;
+  }
+}
+
+.snippet-global-header-title {
+  font-weight: 500;
+  margin-bottom: -$size0;
+}
+
+.header-button {
+  display: inline-block;
+  margin: 0 10px 10px 0;
+}
+
+.most-recent {
+  ol {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+
+    li {
+      background-color: $cellBackground;
+      border: 1px solid $borderColor;
+      margin: $size0;
+      min-height: 200px;
+      width: 200px;
+
+      p {
+        color: $base03;
+      }
+
+      &:hover {
+        background-color: $linkColor;
+      }
+    }
+  }
+}
+
+.propel-logo {
+  display: flex;
+  flex-direction: row;
+  margin-right: $size0;
+  margin-left: $size0;
+
+  h1 {
+    display: inline;
+    font-size: 32pt;
+    font-weight: bold;
+  }
+
+  h2 {
+    display: inline;
+    color: $accentColor;
+    font-size: 16pt;
+    font-weight: normal;
+  }
+
+  a,
+  a:hover,
+  a:visited,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  * {
+    margin: auto 0;
+    margin-right: $size0;
+  }
+}
+
+.global-header {
+  width: 100%;
+  background-color: inherit;
+
+  .global-header-inner {
+    display: flex;
+    max-width: 930px;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .global-header-right {
+    display: flex;
+    flex-direction: row;
+
+    > * {
+      display: block;
+      margin: auto 0 auto 36px;
+    }
+
+    a {
+      font-size: 14pt;
+      font-variant: all-small-caps;
+      text-decoration: none;
+      color: $accentColor;
+    }
+  }
+}
+
+::selection {
+  background: #00f;
+  color: #fff;
+}
+
 .cells {
   margin-top: 50px;
 }
@@ -462,39 +484,6 @@ header {
   &:hover {
     color: #fff;
     background: darken($githubGreen, 10%);
-  }
-}
-
-.most-recent {
-  ol {
-    display: flex;
-    list-style-type: none;
-    flex-wrap: wrap;
-
-    a {
-      display: block;
-      min-height: 200px;
-      width: 200px;
-      padding: $size0;
-    }
-
-    li {
-      background-color: $cellBackground;
-      border: 1px solid $borderColor;
-      margin: $size0;
-
-      p {
-        color: $base03;
-      }
-
-      &:hover {
-        background-color: $linkColor;
-      }
-    }
-
-    li a:hover {
-      text-decoration: none;
-    }
   }
 }
 
@@ -543,6 +532,10 @@ img.avatar {
 // Mobile first. No desktop related things above this line.
 
 @media (min-width: 600px) {
+  h1 {
+    font-size: 5rem;
+  }
+
   .nav-buttons {
     text-align: left;
     padding-left: 12px;
@@ -565,6 +558,15 @@ img.avatar {
     margin-left: $desktopPanelSize;
     padding-left: $size1;
     max-width: auto;
+  }
+
+  .flex-row {
+    flex-wrap: nowrap;
+    width: 100%;
+
+    .flex-cell {
+      flex-basis: 0;
+    }
   }
 }
 
