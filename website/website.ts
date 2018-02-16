@@ -138,7 +138,7 @@ const Perks = () =>
         p(
           "Propel has an imperative ",
           link("https://github.com/HIPS/autograd", "autograd"),
-          `-style API, unlike TensorFlow.  Computation graphs are traced as
+          `-style API.  Computation graphs are traced as
           you run them -- a general purpose `,
           i("gradient function"),
           ` provides an elegant interface to backpropagation.`
